@@ -1177,9 +1177,146 @@ body.t-glass .scroll-top{background:linear-gradient(135deg,#007aff,#0051d5);box-
   background:rgba(255,255,255,.5);
   border-radius:5px;border:1px solid rgba(255,255,255,.8);
 }
+
+/* ══ LOGIN SCREEN ══ */
+#loginScreen{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0;}
+#loginScreen.hidden{display:none;}
+.login-bg{position:fixed;inset:0;z-index:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(244,63,94,.12),transparent 70%),radial-gradient(ellipse 60% 50% at 80% 70%,rgba(140,60,255,.10),transparent 70%);}
+.login-box{position:relative;z-index:1;width:420px;max-width:94vw;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:28px;padding:44px 40px 36px;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.05) inset;backdrop-filter:blur(40px);}
+.login-logo{display:flex;flex-direction:column;align-items:center;gap:8px;margin-bottom:32px;}
+.login-logo-title{font-family:"Playfair Display",serif;font-weight:900;font-style:italic;font-size:2rem;background:linear-gradient(180deg,#fff 0%,#d0d4e0 18%,#8890a8 35%,#c8ccd8 48%,#fff 55%,#9098b0 68%,#d8dce8 85%,#f0f2f8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.login-logo-sub{font-family:"Syne",sans-serif;font-size:.5rem;letter-spacing:.42em;color:rgba(180,185,200,.4);text-transform:uppercase;}
+.login-title{font-family:"Syne",sans-serif;font-weight:800;font-size:1.1rem;margin-bottom:6px;text-align:center;}
+.login-subtitle{font-size:.78rem;color:var(--dm);text-align:center;margin-bottom:28px;}
+.login-field{margin-bottom:14px;}
+.login-label{font-family:"Syne",sans-serif;font-weight:700;font-size:.6rem;letter-spacing:.14em;color:var(--dm);text-transform:uppercase;margin-bottom:6px;display:block;}
+.login-inp{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;color:var(--tx);font-family:"Inter",sans-serif;font-size:.92rem;padding:12px 16px;outline:none;transition:.25s;}
+.login-inp:focus{border-color:rgba(244,63,94,.5);background:rgba(255,255,255,.07);box-shadow:0 0 0 3px rgba(244,63,94,.12);}
+.login-inp::placeholder{color:var(--dm);}
+.login-err{color:#fb7185;font-size:.76rem;margin:-8px 0 10px;display:none;padding-left:4px;}
+.login-err.show{display:block;}
+.login-btn{width:100%;background:linear-gradient(135deg,#f43f5e,#e11d48);color:#fff;border:none;cursor:pointer;font-family:"Syne",sans-serif;font-weight:800;font-size:.9rem;letter-spacing:.06em;padding:13px;border-radius:13px;box-shadow:0 4px 20px rgba(244,63,94,.35);transition:.3s;margin-top:6px;}
+.login-btn:hover{transform:translateY(-2px);box-shadow:0 10px 34px rgba(244,63,94,.45);}
+.login-btn:active{transform:scale(.97);}
+.login-users{margin-top:20px;display:flex;flex-direction:column;gap:8px;}
+.login-users-lbl{font-family:"Syne",sans-serif;font-weight:700;font-size:.58rem;letter-spacing:.14em;color:var(--dm);text-transform:uppercase;text-align:center;margin-bottom:4px;}
+.login-user-btn{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:10px 14px;cursor:pointer;transition:.2s;text-align:left;width:100%;}
+.login-user-btn:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);}
+.login-user-av{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Syne",sans-serif;font-weight:800;font-size:.85rem;color:#fff;flex-shrink:0;}
+.login-user-info{flex:1;}
+.login-user-name{font-family:"Syne",sans-serif;font-weight:700;font-size:.82rem;}
+.login-user-count{font-size:.65rem;color:var(--dm);}
+.login-new{margin-top:12px;text-align:center;font-size:.74rem;color:var(--dm);}
+.login-new a{color:var(--ac);cursor:pointer;text-decoration:none;font-weight:600;}
+.login-new a:hover{text-decoration:underline;}
+
+/* Register form */
+.login-back{background:none;border:none;color:var(--dm);cursor:pointer;font-family:"Syne",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.06em;display:flex;align-items:center;gap:5px;margin-bottom:18px;padding:0;transition:.2s;}
+.login-back:hover{color:var(--tx);}
+
+/* ══ USER BADGE in nav ══ */
+.user-badge{display:flex;align-items:center;gap:8px;background:var(--sf);border:1px solid var(--br);border-radius:12px;padding:7px 12px;cursor:pointer;transition:.25s;}
+.user-badge:hover{background:var(--sf2);}
+.user-av{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Syne",sans-serif;font-weight:800;font-size:.7rem;color:#fff;flex-shrink:0;}
+.user-name{font-family:"Syne",sans-serif;font-weight:700;font-size:.72rem;}
+.user-logout{font-size:.6rem;color:var(--dm);}
+
+/* ══ ADMIN PANEL ══ */
+.overlay#adminModal .mpane{width:900px;max-width:96vw;max-height:85vh;overflow:hidden;display:flex;flex-direction:column;}
+.admin-head{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid var(--br);flex-shrink:0;}
+.admin-head h2{font-family:"Syne",sans-serif;font-weight:800;font-size:1.1rem;display:flex;align-items:center;gap:10px;}
+.admin-tabs{display:flex;gap:2px;background:var(--sf);border:1px solid var(--br);padding:3px;border-radius:10px;margin:16px 24px 0;flex-shrink:0;}
+.admin-tab{background:transparent;border:none;cursor:pointer;color:var(--dm);font-family:"Syne",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.06em;padding:8px 16px;border-radius:8px;transition:.2s;}
+.admin-tab.active{background:rgba(255,255,255,.12);color:var(--tx);}
+.admin-body{flex:1;overflow-y:auto;padding:16px 24px 24px;}
+.admin-user-section{margin-bottom:24px;border:1px solid var(--br);border-radius:16px;overflow:hidden;}
+.admin-user-hdr{display:flex;align-items:center;gap:10px;padding:12px 16px;background:rgba(255,255,255,.03);border-bottom:1px solid var(--br);}
+.admin-user-hdr .user-av{width:32px;height:32px;font-size:.78rem;}
+.admin-user-hdr-info{flex:1;}
+.admin-user-hdr-name{font-family:"Syne",sans-serif;font-weight:800;font-size:.88rem;}
+.admin-user-hdr-meta{font-size:.65rem;color:var(--dm);margin-top:1px;}
+.admin-entries{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;padding:12px;}
+.admin-entry{background:var(--sf);border:1px solid var(--br);border-radius:10px;overflow:hidden;cursor:pointer;transition:.2s;}
+.admin-entry:hover{border-color:var(--ab);transform:translateY(-2px);}
+.admin-entry img{width:100%;height:80px;object-fit:cover;display:block;}
+.admin-entry-info{padding:6px 8px;}
+.admin-entry-title{font-family:"Syne",sans-serif;font-weight:700;font-size:.65rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.admin-entry-meta{font-size:.58rem;color:var(--dm);margin-top:1px;}
+.admin-log-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--br);}
+.admin-log-item:last-child{border-bottom:none;}
+.admin-log-av{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Syne",sans-serif;font-weight:800;font-size:.65rem;color:#fff;flex-shrink:0;margin-top:2px;}
+.admin-log-content{flex:1;}
+.admin-log-user{font-family:"Syne",sans-serif;font-weight:700;font-size:.78rem;}
+.admin-log-action{font-size:.74rem;color:var(--md);margin-top:1px;}
+.admin-log-time{font-size:.62rem;color:var(--dm);margin-top:2px;}
+.admin-empty{text-align:center;padding:40px;color:var(--dm);font-size:.82rem;}
 </style>
 </head>
 <body class="t-midnight cat-all">
+<!-- LOGIN SCREEN -->
+<div id="loginScreen">
+  <div class="login-bg"></div>
+  <div class="login-box" id="loginBox">
+    <div class="login-logo">
+      <svg width="44" height="40" viewBox="0 0 48 44" fill="none"><defs><linearGradient id="lc2" x1="0" y1="0" x2="0" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#fff"/><stop offset="32%" stop-color="#8890a8"/><stop offset="55%" stop-color="#fff"/><stop offset="100%" stop-color="#f0f2f8"/></linearGradient></defs><path d="M4 14L44 6V14L4 22Z" fill="url(#lc2)"/><rect x="4" y="21" width="40" height="20" rx="2" fill="url(#lc2)"/></svg>
+      <div class="login-logo-title">Le Mur Maria</div>
+      <div class="login-logo-sub">— collection —</div>
+    </div>
+    <!-- Login form -->
+    <div id="loginForm">
+      <div class="login-title">Connexion</div>
+      <div class="login-subtitle">Votre collection vous attend</div>
+      <div id="loginUsers" class="login-users"></div>
+      <div class="login-new">Nouveau ? <a onclick="showRegister()">Créer un compte</a></div>
+    </div>
+    <!-- Password form -->
+    <div id="loginPassForm" style="display:none">
+      <button class="login-back" onclick="showLoginList()">← Retour</button>
+      <div class="login-title" id="loginPassTitle">Connexion</div>
+      <div class="login-subtitle" id="loginPassSub">Entrez votre mot de passe</div>
+      <div class="login-field" style="margin-top:20px">
+        <label class="login-label">Mot de passe</label>
+        <input type="password" class="login-inp" id="loginPassInp" placeholder="Mot de passe…" onkeydown="if(event.key==='Enter')doLogin()">
+      </div>
+      <div class="login-err" id="loginErr">Mot de passe incorrect</div>
+      <button class="login-btn" onclick="doLogin()">SE CONNECTER</button>
+    </div>
+    <!-- Register form -->
+    <div id="registerForm" style="display:none">
+      <button class="login-back" onclick="showLoginList()">← Retour</button>
+      <div class="login-title">Créer un compte</div>
+      <div class="login-subtitle">Rejoindre Le Mur Maria</div>
+      <div class="login-field" style="margin-top:16px">
+        <label class="login-label">Prénom / Pseudo</label>
+        <input type="text" class="login-inp" id="regName" placeholder="Maria…">
+      </div>
+      <div class="login-field">
+        <label class="login-label">Mot de passe</label>
+        <input type="password" class="login-inp" id="regPass" placeholder="Choisissez un mot de passe…">
+      </div>
+      <div class="login-err" id="regErr">Nom déjà pris</div>
+      <button class="login-btn" onclick="doRegister()">CRÉER MON COMPTE</button>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN MODAL -->
+<div class="overlay" id="adminModal">
+  <div class="mpane">
+    <div class="admin-head">
+      <h2>👑 Panneau Admin</h2>
+      <button class="em-x" onclick="closeOverlay('adminModal')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="admin-tabs">
+      <button class="admin-tab active" onclick="setAdminTab('collections',this)">Collections</button>
+      <button class="admin-tab" onclick="setAdminTab('logs',this)">Historique</button>
+    </div>
+    <div class="admin-body" id="adminBody"></div>
+  </div>
+</div>
+
 <div class="bg-line"></div>
 <div class="bg-fx"><div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div><div class="orb orb4"></div></div>
 <div class="bg-noise"></div><div class="bg-vig"></div><div class="bg-grid"></div>
@@ -1205,6 +1342,10 @@ body.t-glass .scroll-top{background:linear-gradient(135deg,#007aff,#0051d5);box-
       <div class="stat-pill score-pill"><div class="score-stars-nav" id="navStars"></div><span class="stat-val ac" id="statScore">—</span><span class="stat-lbl">MOY.</span></div>
     </div>
     <div class="nav-actions">
+      <div id="userBadgeWrap"></div>
+      <button class="btn-icon" id="adminBtn" onclick="openAdmin()" style="display:none" title="Panneau Admin">
+        👑 ADMIN
+      </button>
       <button class="btn-icon" onclick="openSettings()">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
         THÈMES
@@ -1479,6 +1620,223 @@ body.t-glass .scroll-top{background:linear-gradient(135deg,#007aff,#0051d5);box-
   </div>
 </div>
 <script>
+/* ══ AUTH CONFIG ══ */
+const ADMIN_USER = 'Maria'; // Ton compte admin
+const ADMIN_HASH = 'maria2024'; // Mot de passe admin (simple hash)
+const TMDB_KEY_BUILTIN = ''; // Ta clé TMDB ici si tu veux la pré-remplir
+
+/* ══ AUTH SYSTEM ══ */
+const USERS_KEY = 'mm_users_v1';
+const LOGS_KEY  = 'mm_logs_v1';
+const SESSION_KEY = 'mm_session_v1';
+
+function getUsers(){return JSON.parse(localStorage.getItem(USERS_KEY)||'[]');}
+function saveUsers(u){localStorage.setItem(USERS_KEY,JSON.stringify(u));}
+function getLogs(){return JSON.parse(localStorage.getItem(LOGS_KEY)||'[]');}
+function addLog(action,detail=''){
+  const logs=getLogs();
+  logs.unshift({user:currentUser,ts:Date.now(),action,detail});
+  if(logs.length>200)logs.splice(200);
+  localStorage.setItem(LOGS_KEY,JSON.stringify(logs));
+}
+
+let currentUser = null;
+let currentIsAdmin = false;
+let pendingLoginUser = null;
+
+function getUserDB(username){
+  return JSON.parse(localStorage.getItem('mm_db_'+username)||'[]');
+}
+function saveUserDB(username, data){
+  localStorage.setItem('mm_db_'+username, JSON.stringify(data));
+}
+function getUserKey(u){return'mm_tmdb_key_'+u;}
+function getUserTheme(u){return localStorage.getItem('mm_theme_'+u)||'t-midnight';}
+function saveUserTheme(u,t){localStorage.setItem('mm_theme_'+u,t);}
+
+// Init default admin if not exists
+(function(){
+  let users=getUsers();
+  if(!users.find(u=>u.name===ADMIN_USER)){
+    users.push({name:ADMIN_USER,pass:ADMIN_HASH,color:'#f43f5e',created:Date.now()});
+    saveUsers(users);
+  }
+  // Check existing session
+  const sess=localStorage.getItem(SESSION_KEY);
+  if(sess){
+    try{
+      const s=JSON.parse(sess);
+      const users2=getUsers();
+      if(users2.find(u=>u.name===s.name)){
+        currentUser=s.name;
+        currentIsAdmin=(s.name===ADMIN_USER);
+      }
+    }catch(e){}
+  }
+})();
+
+function showLoginList(){
+  document.getElementById('loginForm').style.display='';
+  document.getElementById('loginPassForm').style.display='none';
+  document.getElementById('registerForm').style.display='none';
+  renderLoginUsers();
+}
+function showRegister(){
+  document.getElementById('loginForm').style.display='none';
+  document.getElementById('registerForm').style.display='';
+  document.getElementById('regName').value='';
+  document.getElementById('regPass').value='';
+  document.getElementById('regErr').classList.remove('show');
+}
+function showPasswordFor(user){
+  pendingLoginUser=user;
+  document.getElementById('loginForm').style.display='none';
+  document.getElementById('loginPassForm').style.display='';
+  document.getElementById('loginPassTitle').textContent='Bonjour '+user.name+' 👋';
+  document.getElementById('loginPassSub').textContent='Entrez votre mot de passe';
+  document.getElementById('loginPassInp').value='';
+  document.getElementById('loginErr').classList.remove('show');
+  setTimeout(()=>document.getElementById('loginPassInp').focus(),100);
+}
+function doLogin(){
+  const pass=document.getElementById('loginPassInp').value;
+  if(!pendingLoginUser)return;
+  if(pass===pendingLoginUser.pass){
+    loginAs(pendingLoginUser.name);
+  }else{
+    document.getElementById('loginErr').classList.add('show');
+    document.getElementById('loginPassInp').value='';
+    document.getElementById('loginPassInp').focus();
+  }
+}
+function doRegister(){
+  const name=document.getElementById('regName').value.trim();
+  const pass=document.getElementById('regPass').value;
+  if(!name||!pass){document.getElementById('regErr').textContent='Champs requis';document.getElementById('regErr').classList.add('show');return;}
+  const users=getUsers();
+  if(users.find(u=>u.name.toLowerCase()===name.toLowerCase())){
+    document.getElementById('regErr').textContent='Nom déjà pris';
+    document.getElementById('regErr').classList.add('show');return;
+  }
+  const colors=['#f43f5e','#a855f7','#22c55e','#f59e0b','#22d3ee','#e11d48','#7c3aed'];
+  const color=colors[users.length%colors.length];
+  users.push({name,pass,color,created:Date.now()});
+  saveUsers(users);
+  loginAs(name);
+}
+function loginAs(name){
+  currentUser=name;
+  currentIsAdmin=(name===ADMIN_USER);
+  localStorage.setItem(SESSION_KEY,JSON.stringify({name,ts:Date.now()}));
+  document.getElementById('loginScreen').classList.add('hidden');
+  // Load user data
+  DB=getUserDB(name);
+  apiKey=localStorage.getItem(getUserKey(name))||TMDB_KEY_BUILTIN||'';
+  activeTheme=getUserTheme(name);
+  wheelItems=JSON.parse(localStorage.getItem('mm_wheel_'+name)||'[]');
+  applyTheme(activeTheme);
+  setCatClass('all');
+  buildFpStars();
+  render();
+  renderUserBadge();
+  addLog('Connexion');
+}
+function logout(){
+  addLog('Déconnexion');
+  currentUser=null; currentIsAdmin=false;
+  localStorage.removeItem(SESSION_KEY);
+  document.getElementById('loginScreen').classList.remove('hidden');
+  document.getElementById('userBadgeWrap').innerHTML='';
+  document.getElementById('adminBtn').style.display='none';
+  showLoginList();
+}
+
+function renderLoginUsers(){
+  const users=getUsers();
+  const box=document.getElementById('loginUsers');
+  box.innerHTML='';
+  if(!users.length){box.innerHTML='<div style="text-align:center;color:var(--dm);font-size:.78rem;padding:10px">Aucun compte</div>';return;}
+  const lbl=document.createElement('div');lbl.className='login-users-lbl';lbl.textContent='Choisissez votre compte';box.appendChild(lbl);
+  users.forEach(u=>{
+    const db=getUserDB(u.name);
+    const btn=document.createElement('button');btn.className='login-user-btn';
+    btn.innerHTML=`<div class="login-user-av" style="background:${u.color}">${u.name[0].toUpperCase()}</div><div class="login-user-info"><div class="login-user-name">${u.name}</div><div class="login-user-count">${db.length} titre${db.length!==1?'s':''}</div></div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--dm)"><polyline points="9 18 15 12 9 6"/></svg>`;
+    btn.onclick=()=>showPasswordFor(u);
+    box.appendChild(btn);
+  });
+}
+
+function renderUserBadge(){
+  const users=getUsers();
+  const u=users.find(x=>x.name===currentUser);
+  if(!u)return;
+  const wrap=document.getElementById('userBadgeWrap');
+  wrap.innerHTML=`<div class="user-badge" onclick="logout()"><div class="user-av" style="background:${u.color}">${u.name[0].toUpperCase()}</div><div><div class="user-name">${u.name}</div><div class="user-logout">Se déconnecter</div></div></div>`;
+  if(currentIsAdmin) document.getElementById('adminBtn').style.display='flex';
+}
+
+/* Init login screen */
+if(currentUser){
+  // Already logged in from session
+  document.getElementById('loginScreen').classList.add('hidden');
+  DB=getUserDB(currentUser);
+  apiKey=localStorage.getItem(getUserKey(currentUser))||TMDB_KEY_BUILTIN||'';
+  activeTheme=getUserTheme(currentUser);
+  wheelItems=JSON.parse(localStorage.getItem('mm_wheel_'+currentUser)||'[]');
+}else{
+  showLoginList();
+}
+
+/* ══ ADMIN ══ */
+function openAdmin(){
+  if(!currentIsAdmin)return;
+  setAdminTab('collections', document.querySelector('.admin-tab'));
+  openOverlay('adminModal');
+}
+function setAdminTab(tab, btn){
+  document.querySelectorAll('.admin-tab').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  const body=document.getElementById('adminBody');
+  if(tab==='collections') renderAdminCollections(body);
+  else renderAdminLogs(body);
+}
+function renderAdminCollections(body){
+  const users=getUsers();
+  body.innerHTML='';
+  users.forEach(u=>{
+    const db=getUserDB(u.name);
+    const sec=document.createElement('div');sec.className='admin-user-section';
+    sec.innerHTML=`<div class="admin-user-hdr"><div class="user-av" style="background:${u.color}">${u.name[0].toUpperCase()}</div><div class="admin-user-hdr-info"><div class="admin-user-hdr-name">${u.name}${u.name===ADMIN_USER?' 👑':''}</div><div class="admin-user-hdr-meta">${db.length} titre${db.length!==1?'s':''} · Inscrit le ${new Date(u.created).toLocaleDateString('fr-FR')}</div></div></div>`;
+    if(db.length){
+      const grid=document.createElement('div');grid.className='admin-entries';
+      db.slice(0,20).forEach(item=>{
+        const fb=`https://placehold.co/200x120/090a17/333?text=${encodeURIComponent(item.title)}`;
+        const el=document.createElement('div');el.className='admin-entry';
+        el.innerHTML=`<img src="${item.poster||fb}" onerror="this.src='${fb}'" loading="lazy"><div class="admin-entry-info"><div class="admin-entry-title" title="${item.title}">${item.title}</div><div class="admin-entry-meta">★${item.rating||'—'} · ${item.status||'pas-vu'}</div></div>`;
+        grid.appendChild(el);
+      });
+      if(db.length>20){const more=document.createElement('div');more.className='admin-entry';more.style.cssText='display:flex;align-items:center;justify-content:center;font-size:.7rem;color:var(--dm);padding:20px';more.textContent=`+${db.length-20} autres`;grid.appendChild(more);}
+      sec.appendChild(grid);
+    }else{
+      const emp=document.createElement('div');emp.className='admin-empty';emp.textContent='Collection vide';sec.appendChild(emp);
+    }
+    body.appendChild(sec);
+  });
+}
+function renderAdminLogs(body){
+  const logs=getLogs();
+  body.innerHTML='';
+  if(!logs.length){body.innerHTML='<div class="admin-empty">Aucune activité</div>';return;}
+  const users=getUsers();
+  const userMap=Object.fromEntries(users.map(u=>[u.name,u]));
+  logs.forEach(l=>{
+    const u=userMap[l.user]||{color:'#888',name:l.user||'?'};
+    const div=document.createElement('div');div.className='admin-log-item';
+    div.innerHTML=`<div class="admin-log-av" style="background:${u.color}">${(l.user||'?')[0].toUpperCase()}</div><div class="admin-log-content"><span class="admin-log-user">${l.user||'Inconnu'}</span><div class="admin-log-action">${l.action}${l.detail?' — <em>'+l.detail+'</em>':''}</div><div class="admin-log-time">${new Date(l.ts).toLocaleString('fr-FR')}</div></div>`;
+    body.appendChild(div);
+  });
+}
+
 const DB_KEY='murmaria_v2';
 const THEMES=[{id:'t-midnight',n:'Midnight',d:'Noir profond',p:'prev-midnight'},{id:'t-retro',n:'Cinéma Rétro',d:'Sépia, tons or',p:'prev-retro',s:'font-family:"Playfair Display",serif'},{id:'t-neon',n:'Neon Tokyo',d:'Cyberpunk',p:'prev-neon',s:'font-family:"Rajdhani",sans-serif'},{id:'t-velvet',n:'Velvet Dark',d:'Art déco violet',p:'prev-velvet',s:'font-family:"Quicksand",sans-serif;font-weight:700'},{id:'t-rain',n:'Anime Rain',d:'Pluie nocturne',p:'prev-rain',s:'font-family:"Noto Serif JP",serif'},{id:'t-galaxy',n:'Galaxy',d:'Cosmos animé',p:'prev-galaxy'},
   {id:'t-glass',n:'Liquid Glass',d:'Apple style',p:'prev-glass'}];
@@ -1488,23 +1846,10 @@ const LB_DEFAULT=[];
 const AVG_RT=110;
 
 /* STATE */
-let DB=JSON.parse(localStorage.getItem(DB_KEY))||null;
-if(!DB){DB=LB_DEFAULT;localStorage.setItem(DB_KEY,JSON.stringify(DB));}
-else{
-  // Merge marvel tags and poster fixes from LB_DEFAULT
-  const lbMap=Object.fromEntries(LB_DEFAULT.map(x=>[x.id,x]));
-  let changed=false;
-  DB.forEach(x=>{
-    const lb=lbMap[x.id];
-    if(lb){
-      if(lb.marvel&&!x.marvel){x.marvel=true;changed=true;}
-      if(lb.poster&&!x.poster){x.poster=lb.poster;changed=true;}
-    }
-  });
-  if(changed)localStorage.setItem(DB_KEY,JSON.stringify(DB));
-}
-let activeTheme=localStorage.getItem('mm_theme')||'t-midnight';
-let apiKey=localStorage.getItem('mm_tmdb_key')||'';
+let DB=[];
+
+let activeTheme=currentUser?getUserTheme(currentUser):'t-midnight';
+let apiKey=currentUser?(localStorage.getItem(getUserKey(currentUser))||TMDB_KEY_BUILTIN||''):'';
 let catF='all',stF='all',starF=0,sortM='default',fpOpen=false,smTypeF='all';
 let curId=null,tRating=0,tImg='',tCat='film',tStatus='pas-vu',tTmdbId=null,tTmdbType=null,tMarvel=false;
 let epId=null,epSeason=1,epSeasons=[],epEps=[];
@@ -1526,7 +1871,7 @@ function stopGal(){if(gAnim){cancelAnimationFrame(gAnim);gAnim=null;}galCv.style
 window.addEventListener('resize',()=>{if(rAnim){resizeR();initDrops();}if(gAnim)initGal();});
 
 /* THEME */
-function applyTheme(t){ALL_TH.forEach(x=>document.body.classList.remove(x));document.body.classList.add(t);activeTheme=t;localStorage.setItem('mm_theme',t);document.documentElement.style.setProperty('--fd',THEME_FONTS[t]||'"Syne",sans-serif');if(t==='t-rain'){stopGal();startRain();}else if(t==='t-galaxy'){stopRain();startGal();}else{stopRain();stopGal();}}
+function applyTheme(t){ALL_TH.forEach(x=>document.body.classList.remove(x));document.body.classList.add(t);activeTheme=t;if(currentUser)saveUserTheme(currentUser,t);else localStorage.setItem('mm_theme',t);document.documentElement.style.setProperty('--fd',THEME_FONTS[t]||'"Syne",sans-serif');if(t==='t-rain'){stopGal();startRain();}else if(t==='t-galaxy'){stopRain();startGal();}else{stopRain();stopGal();}}
 function setCatClass(c){['cat-all','cat-film','cat-serie','cat-anime'].forEach(x=>document.body.classList.remove(x));document.body.classList.add('cat-'+c);}
 
 /* STARS — demi-étoile partout */
@@ -1853,18 +2198,20 @@ function addCard(x,idx){
   const bc={film:'b-film',serie:'b-serie',anime:'b-anime'}[x.category]||(x.marvel?'b-marvel':'b-film');
   const bl={film:'FILM',serie:'SÉRIE',anime:'ANIMÉ'}[x.category]||'';
   let progH='',epH='';
-  if(x.category==='serie'){const eps=x.episodes||{},w=Object.values(eps).filter(Boolean).length,t=Math.max(w,Object.keys(eps).length,1);const pct=Math.min(100,Math.round(w/t*100));progH=`<div class="card-prog"><div class="card-prog-fill" style="width:${pct}%"></div></div>`;if(w>0)epH=`<div class="card-ep">▶ ${w} ép. vus</div>`;}
+  if(x.category==='serie'&&x.tmdbSeasons){epH=`<div class="card-ep">📺 ${x.tmdbSeasons} saison${x.tmdbSeasons>1?'s':''}</div>`;}
+  else if(x.category==='serie'&&x.tmdbEps){epH=`<div class="card-ep">📺 ${x.tmdbEps} épisodes</div>`;}
   const div=document.createElement('div');div.className='card';div.dataset.id=x.id;div.style.animationDelay=`${Math.min(idx*0.025,.4)}s`;
   const hoverOverlay=`<div class="card-hover-overlay">${x.rating?`<div class="card-hover-rating">${Array.from({length:5},(_,j)=>miniStar(j+1,x.rating)).join('')}<span class="chr">${x.rating}</span></div>`:''} ${x.comment?`<div class="card-hover-comment">${x.comment}</div>`:''}</div>`;
   div.innerHTML=`<button class="card-del" onclick="quickDel(${x.id},event)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button><div class="card-poster"><img src="${x.poster||fb}" onerror="this.src='${fb}'" loading="lazy" decoding="async"><div class="card-ov"></div><div class="card-badge ${bc}">${bl}</div>${stH}${progH}${hoverOverlay}</div><div class="card-body"><div class="card-title">${x.title}</div><div class="card-stars">${stars}${x.rating?`<span class="card-rating">${x.rating}</span>`:''}</div>${epH}</div>`;
-  div.addEventListener('click',()=>x.category==='serie'?openEp(x.id):openEdit(x.id));
+  div.addEventListener('click',()=>openEdit(x.id));
   div.addEventListener('contextmenu',e=>{e.preventDefault();openEdit(x.id);});
   setupDrag(div,x.id);
   grid.appendChild(div);
 }
 
 /* SAVE */
-function saveDB(){localStorage.setItem(DB_KEY,JSON.stringify(DB));}
+function saveDB(){if(currentUser){saveUserDB(currentUser,DB);}}
+
 
 /* OVERLAY */
 function openOverlay(id){document.getElementById(id).classList.add('open');}
@@ -1949,22 +2296,35 @@ function saveEntry(){
   if(!title){ document.getElementById('mTitle').focus(); return; }
   const cb = document.getElementById('mMarvel');
   const marvelVal = cb ? cb.checked : tMarvel;
+  const existing = curId ? (DB.find(x=>x.id===curId)||{}) : {};
   const data = {
     id: curId || Date.now(),
     title, poster: tImg, rating: tRating,
     comment: document.getElementById('mComment').value,
     category: tCat, status: tStatus,
     tmdbId: tTmdbId, tmdbType: tTmdbType,
-    episodes: curId ? (DB.find(x=>x.id===curId)||{}).episodes||{} : {},
+    tmdbSeasons: existing.tmdbSeasons||null,
+    tmdbEps: existing.tmdbEps||null,
     marvel: marvelVal
   };
   if(curId) DB = DB.map(x=>x.id===curId?data:x);
-  else DB.push(data);
+  else { DB.push(data); addLog('Ajout', title); }
+  // Auto-fetch TMDB seasons for new series
+  if(tCat==='serie'&&tTmdbId&&apiKey&&!existing.tmdbSeasons){
+    const savedId=data.id;
+    fetch(`https://api.themoviedb.org/3/tv/${tTmdbId}?api_key=${apiKey}&language=fr-FR`)
+      .then(r=>r.json()).then(d=>{
+        const seasons=(d.seasons||[]).filter(s=>s.season_number>0).length;
+        const eps=d.number_of_episodes||null;
+        DB=DB.map(x=>x.id===savedId?{...x,tmdbSeasons:seasons,tmdbEps:eps}:x);
+        saveDB();render();
+      }).catch(()=>{});
+  }
   saveDB();
   closeOverlay('entryModal');
   render();
 }
-function deleteEntry(){if(!confirm('Supprimer ?'))return;DB=DB.filter(x=>x.id!==curId);saveDB();closeOverlay('entryModal');render();}
+function deleteEntry(){if(!confirm('Supprimer ?'))return;const item=DB.find(x=>x.id===curId);if(item)addLog('Suppression',item.title);DB=DB.filter(x=>x.id!==curId);saveDB();closeOverlay('entryModal');render();}
 
 /* IMG — drag & drop + click */
 function handleImg(e){const f=e.target.files[0];if(!f)return;loadImgFile(f);}
@@ -1981,13 +2341,13 @@ document.addEventListener('DOMContentLoaded',()=>{
 });
 
 /* TMDB SEARCH */
-function openSearch(){document.getElementById('tmdbInput').value='';document.getElementById('smResults').innerHTML='<div class="sm-msg">Recherchez un titre pour l\'ajouter.<br><small style="opacity:.6">Clé API TMDB requise — configurez-la dans ⚙ Thèmes</small></div>';openOverlay('searchModal');setTimeout(()=>document.getElementById('tmdbInput').focus(),150);}
+function openSearch(){document.getElementById('tmdbInput').value='';document.getElementById('smResults').innerHTML='<div class="sm-msg">Recherchez un titre pour l\'ajouter.<br><small style="opacity:.6">Powered by TMDB</small></div>';openOverlay('searchModal');setTimeout(()=>document.getElementById('tmdbInput').focus(),150);}
 function setSmType(t,btn){smTypeF=t;document.querySelectorAll('.sm-type').forEach(b=>b.classList.remove('active'));btn.classList.add('active');}
 
 async function doSearch(){
   const q=document.getElementById('tmdbInput').value.trim();if(!q)return;
   const box=document.getElementById('smResults');
-  if(!apiKey){box.innerHTML='<div class="sm-msg">Aucune clé API TMDB.<br>Cliquez sur <strong>⚙ Thèmes</strong> en haut.</div>';return;}
+  if(!apiKey){box.innerHTML='<div class="sm-msg">Clé TMDB non configurée.<br>Rendez-vous dans ⚙ Thèmes pour l\'ajouter.</div>';return;}
   box.innerHTML='<div class="sm-msg">Recherche en cours…</div>';
   try{
     const res=await fetch(`https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&language=fr-FR&query=${encodeURIComponent(q)}&include_adult=false`);
@@ -2053,7 +2413,8 @@ function updEpProg(item){const eps=item.episodes||{};const allW=Object.values(ep
 /* SETTINGS */
 function openSettings(){document.getElementById('apiInp').value=apiKey;buildThemesGrid();openOverlay('settingsModal');}
 function buildThemesGrid(){const grid=document.getElementById('themesGrid');grid.innerHTML='';THEMES.forEach(t=>{const d=document.createElement('div');d.className='tc'+(activeTheme===t.id?' on':'');d.innerHTML=`<div class="tc-ck"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><div class="tc-prev ${t.p}"></div><div class="tc-name"${t.s?' style="'+t.s+'"':''}>${t.n}</div><div class="tc-desc">${t.d}</div>`;d.onclick=()=>{document.querySelectorAll('.tc').forEach(c=>c.classList.remove('on'));d.classList.add('on');applyTheme(t.id);};grid.appendChild(d);});}
-function saveSettings(){apiKey=document.getElementById('apiInp').value.trim();localStorage.setItem('mm_tmdb_key',apiKey);closeOverlay('settingsModal');}
+function saveSettings(){apiKey=document.getElementById('apiInp').value.trim();if(currentUser)localStorage.setItem(getUserKey(currentUser),apiKey);closeOverlay('settingsModal');}
+
 
 /* SCROLL TO TOP */
 window.addEventListener('scroll',()=>{const btn=document.getElementById('scrollTop');if(btn)btn.classList.toggle('visible',window.scrollY>400);});
@@ -2064,7 +2425,7 @@ document.addEventListener('keydown',e=>{const el=document.activeElement;if(!el||
 
 /* ══ WHEEL ══ */
 const WHEEL_COLORS=['#f43f5e','#a855f7','#22d3ee','#f59e0b','#22c55e','#e11d48','#7c3aed','#0891b2','#d97706','#16a34a','#fb7185','#c084fc','#67e8f9','#fcd34d','#86efac'];
-let wheelItems=JSON.parse(localStorage.getItem('mm_wheel')||'[]');
+let wheelItems=currentUser?JSON.parse(localStorage.getItem('mm_wheel_'+currentUser)||'[]'):JSON.parse(localStorage.getItem('mm_wheel')||'[]');
 let wheelSpinning=false;
 let wheelAngle=0;
 let wheelAnimId=null;
@@ -2167,7 +2528,7 @@ function launchConfetti(color){
   function animC(){c2.clearRect(0,0,ctx2.width,ctx2.height);let alive=false;particles.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=0.35;p.vx*=0.99;p.life-=0.018;p.rot+=p.rs;if(p.life>0){alive=true;c2.save();c2.translate(p.x,p.y);c2.rotate(p.rot);c2.globalAlpha=p.life;c2.fillStyle=p.color;c2.fillRect(-p.r,-p.r/2,p.r*2,p.r);c2.restore();}});if(alive)requestAnimationFrame(animC);else ctx2.remove();}
   requestAnimationFrame(animC);
 }
-function saveWheel(){localStorage.setItem('mm_wheel',JSON.stringify(wheelItems));}
+function saveWheel(){if(currentUser)localStorage.setItem('mm_wheel_'+currentUser,JSON.stringify(wheelItems));else localStorage.setItem('mm_wheel',JSON.stringify(wheelItems));}
 
 function buildWheelList(){
   const box = document.getElementById('wheelItems');
@@ -2467,7 +2828,10 @@ function showWheelWinner(idx){
 applyTheme(activeTheme);
 setCatClass('all');
 buildFpStars();
-render();
+if(currentUser){
+  renderUserBadge();
+  render();
+}
 
 </script>
 
